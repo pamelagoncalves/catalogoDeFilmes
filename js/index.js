@@ -44,14 +44,24 @@ function cadastrar() {
 
     let novoTitulo = document.querySelector ('#titulo').value
 
-    if (listaDeFilmes.includes(novoFilme) || (listaDeTitulos.toLoweCase()).includes(novoTitulo.toLoweCase())) {
-        erro.innerHTML = `Filme ${novoTitulo} já cadastrado.`
-    }else{
+    if (listaDeFilmes.includes(novoFilme) || (listaDeTitulos.includes(novoTitulo))) {
+        erro.innerHTML = `Filme ${novoTitulo} já cadastrado!`
+    } else {
         listaDeFilmes.push(novoFilme)
         listaDeTitulos.push(novoTitulo)
-        erro.innerHTML = ' '
+        erro.innerHTML = ''
+        mostrarFilmes()
 
     }
     document.querySelector('#filme').value = ''
     document.querySelector('#titulo').value = ''
+}
+
+function mostrarFilmes () {
+    do {
+        catalogo.innerHTML += `<div class="filme">
+        <img src=${listaDeFilmes[i]} alt=${listaDeTitulos[i]}><figcapition>${listaDeTitulos[i]}
+        </div>`
+        i++
+    } while (i < listaDeFilmes.length);
 }

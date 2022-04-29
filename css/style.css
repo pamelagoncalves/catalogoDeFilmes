@@ -36,6 +36,8 @@ body {
 
 img {
     max-height: 250px;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 1rem chocolate;
 }
 
 #filme, #titulo {
@@ -82,7 +84,10 @@ img {
 }
 
 .filme {
-    border: 2px solid white;
     padding: 1.5rem;
     width: 13rem;
+    background-color: #00000050;
+    margin: 1rem;
+    border-radius: 1rem;
+
 }
