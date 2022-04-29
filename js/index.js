@@ -21,7 +21,7 @@ let listaDeTitulos = [
     'Avengers - Os vingadores' ,
     'Doutor Estranho - Multiverso da Loucura' ,
     'Homem Aranha - Sem volta para casa' ,
-    'Batman - 2022' ,
+    'Batman 2022' ,
     
 ]
 
@@ -35,4 +35,23 @@ for (i; i < listaDeFilmes.length; i++) {
     catalogo.innerHTML += `<div class ="filme">
         <img src=${listaDeFilmes[i]}><figcaption>${listaDeTitulos[i]}</figcaption>
     </div>`
+}
+
+let filmeRepitido = true
+
+function cadastrar() {
+    let novoFilme = document.querySelector('#filme').value
+
+    let novoTitulo = document.querySelector ('#titulo').value
+
+    if (listaDeFilmes.includes(novoFilme) || (listaDeTitulos.toLoweCase()).includes(novoTitulo.toLoweCase())) {
+        erro.innerHTML = `Filme ${novoTitulo} já cadastrado.`
+    }else{
+        listaDeFilmes.push(novoFilme)
+        listaDeTitulos.push(novoTitulo)
+        erro.innerHTML = ' '
+
+    }
+    document.querySelector('#filme').value = ''
+    document.querySelector('#titulo').value = ''
 }
